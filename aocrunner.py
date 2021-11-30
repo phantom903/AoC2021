@@ -6,22 +6,22 @@
 #             23: 'TwentyThree', 24: 'TwentyFour', 25: 'TwentyFive'}
 
 # import importlib
-from day6 import DaySix
+# from day6 import DaySix
 from day1 import DayOne
-from day2 import DayTwo
-from day3 import DayThree
-from day4 import DayFour
+# from day2 import DayTwo
+# from day3 import DayThree
+# from day4 import DayFour
 from aoc import fileOpenLines, fileOpenNewLines, ints
 import sys
 import time
-from day5 import DayFive
-from day7 import DaySeven
-from day8 import DayEight
-from day9 import DayNine
-from day10 import DayTen
-from day11 import DayEleven
-from day12 import DayTwelve
-from day13 import DayThirteen
+# from day5 import DayFive
+# from day7 import DaySeven
+# from day8 import DayEight
+# from day9 import DayNine
+# from day10 import DayTen
+# from day11 import DayEleven
+# from day12 import DayTwelve
+# from day13 import DayThirteen
 
 if len(sys.argv) > 1:
   dayChoice = sys.argv[1]
