@@ -25,7 +25,7 @@ def binaryPass(binChars, data):
 ## Read input file for Day dayNum and split input into
 ## a list of lines - converted to ints if rtnType "i"
 ##
-def fileOpenLines(dayNum, rtnType):
+def fileOpenLines(dayNum, rtnType="s"):
   f = open("input/day" + str(dayNum) + ".txt")
   x = f.read().splitlines()
   f.close()
