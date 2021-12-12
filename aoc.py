@@ -61,3 +61,16 @@ def fileOpenNewLines(dayNum):
       entry = ""
   entries.append(entry.strip())
   return entries
+
+def neighbours(current, mem, diag=False):
+  if diag:
+    checks = 8
+  else:
+    checks = 4
+  locX = [1, 0, -1, 0, -1, 1, -1, 1]
+  locY = [0, 1, 0, -1, 1, -1, -1, 1]
+  lowPoint = True
+  for i in range(checks):
+    row, col = current[0] + locX[i], current[1] + locY[i]
+    if row >= 0 and row < len(mem[0]) and col >= 0 and col < len(mem):
+      yield (row, col)

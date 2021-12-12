@@ -16,10 +16,10 @@ import sys
 import time
 from day5 import DayFive
 from day7 import DaySeven
-# from day8 import DayEight
-# from day9 import DayNine
-# from day10 import DayTen
-# from day11 import DayEleven
+from day8 import DayEight
+from day9 import DayNine
+from day10 import DayTen
+from day11 import DayEleven
 # from day12 import DayTwelve
 # from day13 import DayThirteen
 
@@ -71,17 +71,17 @@ elif dayChoice == "8":
   print("Part 1: ", dayEight.partOne())
   print("Part 2: ", dayEight.partTwo())
 elif dayChoice == "9":
-  y = fileOpenLines(9,"i")
+  y = fileOpenLines(9,"s")
   dayNine = DayNine(y)
   print("Part 1: ", dayNine.partOne())
   print("Part 2: ", dayNine.partTwo())
 elif dayChoice == "10":
-  y = fileOpenLines(10,"i")
+  y = fileOpenLines(10,"s")
   dayTen = DayTen(y)
   print("Part 1: ", dayTen.partOne())
-  print("Part 2: ", dayTen.partTwo(max(y)))
+  print("Part 2: ", dayTen.partTwo())
 elif dayChoice == "11":
-  y = fileOpenLines('11a',"s")
+  y = fileOpenLines('11',"s")
   dayEleven = DayEleven(y)
   startTime = time.time()
   print("Part 1: ", dayEleven.partOne(), " in ", round(time.time() - startTime,2), "s")
