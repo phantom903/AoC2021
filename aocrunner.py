@@ -20,7 +20,7 @@ from day8 import DayEight
 from day9 import DayNine
 from day10 import DayTen
 from day11 import DayEleven
-# from day12 import DayTwelve
+from day12 import DayTwelve
 # from day13 import DayThirteen
 
 if len(sys.argv) > 1:
