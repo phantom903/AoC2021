@@ -14,11 +14,11 @@ func main() {
 	for i, raw := range lines {
 		values[i], _ = strconv.Atoi(strings.TrimSpace(raw))
 	}
-	fmt.Println("Part One: ", partOne(values))
-	fmt.Println("Part Two: ", partTwo(values))
+	fmt.Println("Part One: ", d1partOne(values))
+	fmt.Println("Part Two: ", d1partTwo(values))
 }
 
-func partOne(values []int) int {
+func d1partOne(values []int) int {
 	count := 0
 	for i := 0; i < len(values)-1; i++ {
 		if values[i] < values[i+1] {
@@ -28,7 +28,7 @@ func partOne(values []int) int {
 	return count
 }
 
-func partTwo(inputMem []int) int {
+func d1partTwo(inputMem []int) int {
 	count := 0
 	for i := 0; i < len(inputMem)-3; i++ {
 		tot1 := inputMem[i] + inputMem[i+1] + inputMem[i+2]
