@@ -22,6 +22,7 @@ from day10 import DayTen
 from day11 import DayEleven
 from day12 import DayTwelve
 # from day13 import DayThirteen
+from day14 import DayFourteen
 
 if len(sys.argv) > 1:
   dayChoice = sys.argv[1]
@@ -106,9 +107,9 @@ elif dayChoice == "14":
   y = fileOpenLines(14,"s")
   dayFourteen = DayFourteen(y)
   startTime = time.time()
-  print("Part 1: ", dayFourteen.partOne(), " in ", round(time.time() - startTime, 2), "s")
-  startTime = time.time()
-  print("Part 2: ", dayFourteen.partTwo(), " in ", round(time.time() - startTime, 2), "s")
+  print("Part 1: ", dayFourteen.simPolymer(10), " in ", round(time.time() - startTime, 2), "s")
+  # startTime = time.time()
+  # print("Part 2: ", dayFourteen.simPolymer(40), " in ", round(time.time() - startTime, 2), "s")
 elif dayChoice == "15":
   from day15 import DayFifteen
   y = [1,2,16,19,18,0]

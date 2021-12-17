@@ -25,19 +25,19 @@ class DayTwelve:
     for i in self.caves[cave]:
      yield i
 
-  def traverse(self, cave):
+  def traverse(self, cave, visited):
     print(cave)
     if cave == 'end':
       self.paths += 1
     else:
       for next in self.getNeighbours(cave):
-        if next not in self.visited:
+        if next not in visited:
           if not next.isupper() and next != 'end':
-            self.visited.add(next)
-          self.traverse(next)  
-    
+            visited.add(next)
+          self.traverse(next, visited)  
+
   def partOne(self):
-    self.traverse('start')
+    self.traverse('start', set())
     return self.paths
 
   def partTwo(self):
