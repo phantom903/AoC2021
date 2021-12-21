@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"strconv"
 	"strings"
 )
@@ -12,9 +11,8 @@ type instruction struct {
 	amount    int
 }
 
-func main() {
-	inputMem, _ := ioutil.ReadFile("input/day2.txt")
-	lines := strings.Split(string(inputMem), "\n")
+func DayTwo() {
+	lines := GetFileStrings("input/day2.txt")
 	values := make([]instruction, len(lines))
 	for i, raw := range lines {
 		parts := strings.Split(raw, " ")

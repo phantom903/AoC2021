@@ -1,11 +1,3 @@
-# num2words = {1: 'One', 2: 'Two', 3: 'Three', 4: 'Four', 5: 'Five', \
-#              6: 'Six', 7: 'Seven', 8: 'Eight', 9: 'Nine', 10: 'Ten', \
-#             11: 'Eleven', 12: 'Twelve', 13: 'Thirteen', 14: 'Fourteen', \
-#             15: 'Fifteen', 16: 'Sixteen', 17: 'Seventeen', 18: 'Eighteen', \
-#             19: 'Nineteen', 20: 'Twenty', 21: 'TwentyOne', 22: 'TwentyTwo', \
-#             23: 'TwentyThree', 24: 'TwentyFour', 25: 'TwentyFive'}
-
-# import importlib
 from day6 import DaySix
 from day1 import DayOne
 from day2 import DayTwo
@@ -19,9 +11,9 @@ from day7 import DaySeven
 from day8 import DayEight
 from day9 import DayNine
 from day10 import DayTen
-from day11 import DayEleven
+from day11a import DayEleven
 from day12 import DayTwelve
-# from day13 import DayThirteen
+from day13 import DayThirteen
 from day14 import DayFourteen
 
 if len(sys.argv) > 1:
@@ -85,7 +77,7 @@ elif dayChoice == "11":
   y = fileOpenLines('11',"s")
   dayEleven = DayEleven(y)
   startTime = time.time()
-  print("Part 1: ", dayEleven.partOne(), " in ", round(time.time() - startTime,2), "s")
+  print("Part 1: ", dayEleven.partOne(100), " in ", round(time.time() - startTime,2), "s")
   startTime = time.time()
   print("Part 2: ", dayEleven.partTwo(), " in ", round(time.time() - startTime, 2), "s")
 elif dayChoice == "12":

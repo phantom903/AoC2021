@@ -2,20 +2,13 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
-	"strconv"
-	"strings"
 )
 
-func main() {
-	inputMem, _ := ioutil.ReadFile("input/day1.txt")
-	lines := strings.Split(string(inputMem), "\n")
-	values := make([]int, len(lines))
-	for i, raw := range lines {
-		values[i], _ = strconv.Atoi(strings.TrimSpace(raw))
-	}
+func DayOne() int {
+	values := GetFileInts("input/day1.txt")
 	fmt.Println("Part One: ", d1partOne(values))
 	fmt.Println("Part Two: ", d1partTwo(values))
+	return 1
 }
 
 func d1partOne(values []int) int {
