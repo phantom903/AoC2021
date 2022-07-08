@@ -15,6 +15,9 @@ from day11a import DayEleven
 from day12 import DayTwelve
 from day13 import DayThirteen
 from day14 import DayFourteen
+from day15 import DayFifteen
+from day16 import DaySixteen
+# from day17 import DaySeventeen
 
 if len(sys.argv) > 1:
   dayChoice = sys.argv[1]
@@ -95,24 +98,20 @@ elif dayChoice == "13":
   startTime = time.time()
   print("Part 2: ", dayThirteen.partTwo(), " in ", round(time.time() - startTime, 2), "s")
 elif dayChoice == "14":
-  from day14 import DayFourteen
   y = fileOpenLines(14,"s")
   dayFourteen = DayFourteen(y)
   startTime = time.time()
   print("Part 1: ", dayFourteen.simPolymer(10), " in ", round(time.time() - startTime, 2), "s")
-  # startTime = time.time()
-  # print("Part 2: ", dayFourteen.simPolymer(40), " in ", round(time.time() - startTime, 2), "s")
+  startTime = time.time()
+  print("Part 2: ", dayFourteen.simPolymer(40), " in ", round(time.time() - startTime, 2), "s")
 elif dayChoice == "15":
-  from day15 import DayFifteen
-  y = [1,2,16,19,18,0]
-  # y = [0, 3, 6]
+  y = fileOpenLines(15, "s")
   dayFifteen = DayFifteen(y)
   startTime = time.time()
   print("Part 1: ", dayFifteen.partOne(), " in ", round(time.time() - startTime, 2), "s")
   startTime = time.time()
   print("Part 2: ", dayFifteen.partTwo(), " in ", round(time.time() - startTime, 2), "s")
 elif dayChoice == "16":
-  from day16 import DaySixteen
   y = fileOpenLines(16, "s")
   daySixteen = DaySixteen(y)
   startTime = time.time()
@@ -120,10 +119,17 @@ elif dayChoice == "16":
   startTime = time.time()
   print("Part 2: ", daySixteen.partTwo(), " in ", round(time.time() - startTime, 2), "s")
 elif dayChoice == "17":
-  from day17 import DaySeventeen
   y = fileOpenLines(17,"s")
   daySeventeen = DaySeventeen(y)
   startTime = time.time()
   print("Part 1: ", daySeventeen.partOne(), " in ", round(time.time() - startTime, 2), "s")
   startTime = time.time()
   print("Part 2: ", daySeventeen.partTwo(), " in ", round(time.time() - startTime, 2), "s")
+elif dayChoice == "20":
+  from day20 import DayTwenty
+  y = fileOpenLines(20,"s")
+  dayTwenty = DayTwenty(y)
+  startTime = time.time()
+  print("Part 1: ", dayTwenty.partOne(), " in ", round(time.time() - startTime, 2), "s")
+  startTime = time.time()
+  print("Part 2: ", dayTwenty.partTwo(), " in ", round(time.time() - startTime, 2), "s")

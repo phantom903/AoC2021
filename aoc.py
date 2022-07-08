@@ -76,3 +76,24 @@ def neighbours(current, mem, diag=False):
     if row >= 0 and row < len(mem[0]) and col >= 0 and col < len(mem):
       res.append((row,col))
   return res
+
+def manhattan(a, b):
+  return sum(abs(val1-val2) for val1, val2 in zip(a,b))
+
+def printBoard(mem):
+  for line in mem:
+    print(''.join([str(i) for i in line]))
+  print('============')
+  return
+
+def memoize(func):
+  cache = dict()
+
+  def memoized_func(*args):
+      if args in cache:
+          return cache[args]
+      result = func(*args)
+      cache[args] = result
+      return result
+
+  return memoized_func
