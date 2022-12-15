@@ -26,7 +26,10 @@ def binaryPass(binChars, data):
 ## a list of lines - converted to ints if rtnType "i"
 ##
 def fileOpenLines(dayNum, rtnType="s"):
-  f = open("input/day" + str(dayNum) + ".txt")
+  if rtnType == "t":
+    f = open("input/day" + str(dayNum) + "test.txt")
+  else:
+    f = open("input/day" + str(dayNum) + ".txt")
   x = f.read().splitlines()
   f.close()
   if rtnType == "i":
@@ -34,6 +37,42 @@ def fileOpenLines(dayNum, rtnType="s"):
   else:
     return x
 
+##
+## Read input file for Day dayNum and return a string
+## of the entire file
+##
+def fileOpenRaw(dayNum):
+  f = open("input/day" + str(dayNum) + ".txt")
+  x = f.read()
+  f.close()
+  return x
+
+##
+## Bubble sort a list depending on compare function
+## which must return True if left is less than right
+## if no compare function is passed, use generic compare
+##
+def bubblesort(toSort, compareFn=lambda left, right: left < right):
+  for i in range(len(toSort)):
+    for j in range(len(toSort) - 1):
+      if compareFn(toSort[j+ 1], toSort[j]):
+        temp = toSort[j]
+        toSort[j] = toSort[j + 1]
+        toSort[j + 1] = temp
+  return toSort
+
+##
+## Read input file for Day dayNum and split input into
+## a list of lists of ints
+##
+def fileOpenIntGrid(dayNum):
+  f = open("input/day" + str(dayNum) + ".txt")
+  x = f.read().splitlines()
+  f.close()
+  for i in range(len(x)):
+    x[i] = [int(val) for val in x[i]]
+  return x
+  
 ##
 ## Return a list of ints in a string, other chars
 ## are ignored
@@ -62,6 +101,10 @@ def fileOpenNewLines(dayNum):
   entries.append(entry.strip())
   return entries
 
+##
+## Returns all neighbours of current location in mem
+## looking diagonally if diag is True
+##
 def neighbours(current, mem, diag=False):
   res = []
   if diag:
@@ -77,15 +120,67 @@ def neighbours(current, mem, diag=False):
       res.append((row,col))
   return res
 
+##
+## Returns the manhattan distance between two points
+##
 def manhattan(a, b):
   return sum(abs(val1-val2) for val1, val2 in zip(a,b))
 
+##
+## Returns true if a and b are diagonal to each other
+##
+def isDiagonal(a, b):
+  return (a[0] != b[0]) and (a[1] != b[1]) and (manhattan(a, b) % 2 == 0)
+
+##
+## Returns a list of all adjacent locations to loc
+##
+def adjacents(loc):
+  return [
+    (loc[0]+1, loc[1]), (loc[0]-1, loc[1]), (loc[0], loc[1]+1), (loc[0], loc[1]-1),
+    (loc[0]+1, loc[1]+1), (loc[0]-1, loc[1]-1), (loc[0]+1, loc[1]-1), (loc[0]-1, loc[1]+1)
+  ]
+
+##
+## Performs a move in the direction specified
+## and returns the new location
+##
+def doMove(loc, direction):
+  if direction == 'N':
+    return (loc[0], loc[1]-1)
+  elif direction == 'S':
+    return (loc[0], loc[1]+1)
+  elif direction == 'E':
+    return (loc[0]+1, loc[1])
+  elif direction == 'W':
+    return (loc[0]-1, loc[1])
+  elif direction == 'D':
+    return (loc[0], loc[1]+1)
+  elif direction == 'U':
+    return (loc[0], loc[1]-1)
+  elif direction == 'R':
+    return (loc[0]+1, loc[1])
+  elif direction == 'L':
+    return (loc[0]-1, loc[1])
+
+##
+## Returns true if a and b are adjacent
+##
+def isAdjacent(a, b):
+  return b in adjacents(a)
+
+##
+## Prints a 2D array
+##
 def printBoard(mem):
   for line in mem:
     print(''.join([str(i) for i in line]))
   print('============')
   return
 
+##
+## Returns a cached version of a function
+##
 def memoize(func):
   cache = dict()
 
@@ -97,3 +192,20 @@ def memoize(func):
       return result
 
   return memoized_func
+
+##
+## Returns an (x, y) tuple of fromLoc moved towards tgtLoc
+## according to the rules of AoC 2022 Day 9
+##
+def moveTowards(tgtLoc, fromLoc):
+  x,y = fromLoc[0], fromLoc[1]
+  dx = tgtLoc[0] - fromLoc[0]
+  dy = tgtLoc[1] - fromLoc[1]
+  if abs(dx) == 2 and not dy:
+    x += 1 if dx > 0 else -1
+  elif abs(dy) == 2 and not dx:
+    y += 1 if dy > 0 else -1
+  elif (abs(dy) == 2 and abs(dx) in (1,2)) or (abs(dx) == 2 and abs(dy) in (1,2)):
+    x += 1 if dx > 0 else -1
+    y += 1 if dy > 0 else -1
+  return (x,y)
