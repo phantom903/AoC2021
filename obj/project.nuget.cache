@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "hVpPCaDAj6L6np9TKEjpvcAlxVI0jza6y6qnX/qrHJj3fIr8R0KVYWWKDf1bH0q5hybPCTVsTADkVCaVSQmi0A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ponti\\OneDrive\\Documents\\development\\AoC2021\\AoC2021.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ponti\\.nuget\\packages\\fsharp.core\\6.0.5\\fsharp.core.6.0.5.nupkg.sha512"
+  ],
+  "logs": []
+}
